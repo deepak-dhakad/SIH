@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Parking Lot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1 class="header">Edit Parking Lot - {{ lot.name }}</h1>
+    <form method="POST">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" class="form-input" value="{{ lot.name }}" required><br>
+
+        <label for="location" class="form-label">Location:</label>
+        <input type="text" id="location" name="location" class="form-input" value="{{ lot.location }}" required><br>
+
+        <label for="capacity" class="form-label">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" class="form-input" value="{{ lot.capacity }}" required><br>
+
+        <label for="price_per_hour" class="form-label">Price per Hour:</label>
+        <input type="number" step="0.01" id="price_per_hour" name="price_per_hour" class="form-input" value="{{ lot.price_per_hour }}" required><br>
+
+        <input type="submit" value="Save" class="submit-button">
+    </form>
+    <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+</body>
+</html>

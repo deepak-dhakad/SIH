@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Lot Management</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1 class="header">Parking Lot Management</h1>
+
+    <h2>Parking Lots</h2>
+    <ul>
+        {% for lot in parking_lots %}
+            <li>{{ lot.name }} - Capacity: {{ lot.capacity }} - Price per Hour: {{ lot.price_per_hour }}
+                <a href="{{ url_for('edit_parking_lot', lot_id=lot.id) }}" class="edit-link">Edit</a>
+                <a href="{{ url_for('delete_parking_lot', lot_id=lot.id) }}" class="delete-link">Delete</a>
+                <a href="/real_time_surveillance" class="surveillance-link">See Real-Time Surveillance</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} - Role: {{ user.role }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('add_parking_lot') }}" class="add-link">Add Parking Lot</a>
+    <br>
+</body>
+</html>
